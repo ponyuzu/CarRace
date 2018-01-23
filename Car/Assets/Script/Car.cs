@@ -8,7 +8,7 @@ public class Car : MonoBehaviour {
     const float DECELERATION = -0.003f;//減速度
     const float MAX_SPEED = 0.5f;//マックススピード
     const float MAX_BACK_SPEED = -0.3f;//バックの時のマックススピード
-    const float ROT_SPEED = 0.2f;//回転スピード
+    const float ROT_SPEED = 0.4f;//回転スピード
 
     Rigidbody rb;
     float speed;//車のスピード
