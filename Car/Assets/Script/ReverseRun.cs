@@ -5,6 +5,8 @@ using UnityEngine;
 public class ReverseRun : MonoBehaviour {
     [SerializeField]
     GameObject Text;
+	[SerializeField]
+	Goal goal;
 
     int pointNumber;//触ったチェックポイントのナンバー
     int oldPointNumber;//さっき触ったポイントのナンバー
@@ -20,10 +22,12 @@ public class ReverseRun : MonoBehaviour {
         if (pointNumber < oldPointNumber || (pointNumber == 6 && oldPointNumber == 0)) {
             Debug.Log("逆走してるよ！！");
             Text.SetActive(true);
+			goal.IsReversRun (true);
         }
         else if(pointNumber > oldPointNumber || (pointNumber == 0 && oldPointNumber == 6))
         {
             Text.SetActive(false);
+			goal.IsReversRun (false);
         }
 
         //色々な処理をした後oldを更新する
@@ -34,5 +38,9 @@ public class ReverseRun : MonoBehaviour {
     //数字を更新していく
     public void GetCheckPointNumber(int num){
         pointNumber = num;
+
+		if (num == 3) {//今回は直値を入れたけど、本来は全体の個数を管理して計算して出すよ！
+			goal.TouchedMidelePoint ();
+		}
     }
 }
